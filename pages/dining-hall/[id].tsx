@@ -24,7 +24,7 @@ const diningHalls = [
     },
 ];
 
-const diningHallReviews = {
+const diningHallReviews: { [key: string]: { userID: string; rating: number; description: string; }[] } = {
     '1': [
         { userID: 'user1', rating: 5, description: 'Great food!' },
         { userID: 'user2', rating: 3, description: 'It was okay.' },
@@ -41,12 +41,16 @@ const diningHallReviews = {
 
 export default function DiningHall() {
     const router = useRouter();
-    const { id } = router.query;
+    const id = String(router.query.id);
+
+    if (!id) {
+        return null;
+    }
 
     const diningHall = diningHalls.find((hall) => hall.id === id);
 
     if (!diningHall) {
-        return <div>Loading...</div>;
+        return <div>Dining hall not found.</div>;
     }
 
     const reviews = diningHallReviews[id] || [];
