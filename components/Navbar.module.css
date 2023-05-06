@@ -1,0 +1,16 @@
+.nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.link {
+    margin: 0 1rem;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.link:hover {
+    color: rgb(177, 24, 50);
+}
