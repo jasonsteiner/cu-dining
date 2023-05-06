@@ -6,21 +6,21 @@ import styles from '../../styles/dining-hall.module.css';
 const diningHalls = [
     {
         id: '1',
-        name: 'Dining Hall 1',
-        imageURL: 'https://via.placeholder.com/150',
-        avgRating: 4,
+        name: "Morrison Dining",
+        imageURL: "https://via.placeholder.com/150",
+        avgRating: 4.7,
     },
     {
         id: '2',
-        name: 'Dining Hall 2',
-        imageURL: 'https://via.placeholder.com/150',
-        avgRating: 4.2,
+        name: "North Star Dining Room",
+        imageURL: "https://via.placeholder.com/150",
+        avgRating: 4.1,
     },
     {
         id: '3',
-        name: 'Dining Hall 3',
-        imageURL: 'https://via.placeholder.com/150',
-        avgRating: 3.8,
+        name: "Risley Dining Room",
+        imageURL: "https://via.placeholder.com/150",
+        avgRating: 3.2,
     },
 ];
 

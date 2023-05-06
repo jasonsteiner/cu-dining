@@ -5,21 +5,21 @@ import styles from '../styles/Home.module.css';
 const diningHalls = [
     {
         id: 1,
-        name: "Dining Hall 1",
-        image: "/path/to/image1.jpg",
-        averageRating: 4.5,
+        name: "Morrison Dining",
+        image: "https://via.placeholder.com/150",
+        averageRating: 4.7,
     },
     {
         id: 2,
-        name: "Dining Hall 2",
-        image: "/path/to/image2.jpg",
-        averageRating: 3.7,
+        name: "North Star Dining Room",
+        image: "https://via.placeholder.com/150",
+        averageRating: 4.1,
     },
     {
         id: 3,
-        name: "Dining Hall 3",
-        image: "/path/to/image3.jpg",
-        averageRating: 4.2,
+        name: "Risley Dining Room",
+        image: "https://via.placeholder.com/150",
+        averageRating: 3.2,
     },
 ];
 
@@ -27,13 +27,13 @@ export default function Home() {
     return (
         <div className={styles.container}>
             <Head>
-                <title>CU Dining Halls</title>
-                <meta name="description" content="CU Dining Halls Review App" />
+                <title>Home | CU Dining</title>
+                <meta name="description" content="CU Dining Locations Review App" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <main className={styles.main}>
-                <h1 className={styles.title}>CU Dining Halls</h1>
+                <h1 className={styles.title}>Dining Locations</h1>
 
                 <div className={styles.diningHalls}>
                     {diningHalls.map((diningHall) => (

@@ -11,9 +11,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className={styles.container}>
             <header className={styles.header}>
                 <Link href="/">
-                    <span>
-                        <a className={styles.homeLink}>Home</a>
-                    </span>
+                    <h1 className={styles.homeLink}>CU Dining</h1>
                 </Link>
             </header>
             <main className={styles.main}>{children}</main>
