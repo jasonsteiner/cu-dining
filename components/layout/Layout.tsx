@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import styles from './Layout.module.css';
 
-interface Props {
-    children: React.ReactNode;
+interface LayoutProps {
+    children: ReactNode;
 }
 
-const Layout: React.FC<Props> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
     return (
         <div className={styles.container}>
             <header className={styles.header}>
                 <Link href="/">
-                    <a className={styles.homeButton}>Home</a>
+                    <span>
+                        <a className={styles.homeLink}>Home</a>
+                    </span>
                 </Link>
             </header>
             <main className={styles.main}>{children}</main>
