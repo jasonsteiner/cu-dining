@@ -6,7 +6,7 @@ import styles from '../../styles/dining-hall.module.css';
 const diningHalls = [
     {
         id: '1',
-        name: "Morrison Dining",
+        name: "Morrison Dining Room",
         imageURL: "https://via.placeholder.com/150",
         avgRating: 4.7,
     },
@@ -22,8 +22,27 @@ const diningHalls = [
         imageURL: "https://via.placeholder.com/150",
         avgRating: 3.2,
     },
+    {
+        id: '4',
+        name: "Okenshields Dining Room",
+        imageURL: "https://via.placeholder.com/150",
+        avgRating: 2.1,
+    },
+    {
+        id: '5',
+        name: "Terrace Restaurant",
+        imageURL: "https://via.placeholder.com/150",
+        avgRating: 4.3,
+    },
+    {
+        id: '6',
+        name: "Trillium Food Court",
+        imageURL: "https://via.placeholder.com/150",
+        avgRating: 4.9,
+    }
 ];
 
+// hardcoded reviews delete later...
 const diningHallReviews = {
     '1': [
         { userID: 'user1', rating: 5, description: 'Great food!' },
@@ -39,6 +58,7 @@ const diningHallReviews = {
     ],
 };
 
+// location-specific subpage
 export default function DiningHall() {
     const router = useRouter();
     const { id } = router.query;

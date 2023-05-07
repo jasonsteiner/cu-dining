@@ -24,7 +24,7 @@ const DiningHallCard: React.FC<{ diningHall: DiningHall }> = ({ diningHall }) =>
                     className={styles.image}
                 />
                 <p className={styles.rating}>
-                    Average Rating: {averageRating} / 5
+                    Average Rating: {averageRating} / 5.0
                 </p>
             </div>
         </Link>

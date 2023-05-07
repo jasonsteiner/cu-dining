@@ -21,6 +21,24 @@ const diningHalls = [
         image: "https://via.placeholder.com/150",
         averageRating: 3.2,
     },
+    {
+        id: 4,
+        name: "Okenshields Dining Room",
+        image: "https://via.placeholder.com/150",
+        averageRating: 2.1,
+    },
+    {
+        id: 5,
+        name: "Terrace Restaurant",
+        image: "https://via.placeholder.com/150",
+        averageRating: 4.3,
+    },
+    {
+        id: 6,
+        name: "Trillium Food Court",
+        image: "https://via.placeholder.com/150",
+        averageRating: 4.9,
+    }
 ];
 
 export default function Home() {
