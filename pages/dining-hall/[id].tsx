@@ -6,6 +6,8 @@ import { db } from "../../util/firebase"
 import { onSnapshot, collection, query} from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { ReviewWithId, Review } from "../../types"
+import { Heading, Spinner, VStack } from "@chakra-ui/react"
+import ReviewList from "../../components/ReviewList"
 
 // static locations (not from database)
 const diningHalls = [
@@ -67,21 +69,21 @@ const diningHallReviews: { [key: string]: { userID: string; rating: number; desc
 const reviewQuery = query(collection(db, "morrison"));
 
 const FetchReviews = () => {
-    // Subscribes to `reviewQuery` to get realtime updates
-    // We define a function to run whenever the query result changes
     const [reviews, setReviews] = useState<ReviewWithId[] | null>(null)
     useEffect(() => {
-        const temp = onSnapshot(reviewQuery, (reviewSnapshot) => {
-            setReviews(reviewSnapshot.docs.map((rev) => {
-                const review: Review = rev.data() as Review
-                return {...review, id: rev.id}
+        const snap = onSnapshot(reviewQuery, (reviewSnapshot) => {
+            setReviews(reviewSnapshot.docs.map((doc) => {
+                const review: Review = doc.data() as Review
+                return {...review, id: doc.id}
             }) as ReviewWithId[]);
         })
-        return temp
+        return snap
     }, [])
 
     return (
-        reviews
+        <VStack spacing={4}> 
+          {reviews ? <ReviewList reviews={reviews} /> : <Spinner />}
+        </VStack>
     )
 }
 
