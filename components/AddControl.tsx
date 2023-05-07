@@ -27,7 +27,7 @@ const AddControl = () => {
             <HStack>
                 <RadioGroup value={stars} onChange={setStars}>
                     <VStack>
-                      <Radio value='1'>★☆☆☆☆</Radio>
+                        <Radio value='1'>★☆☆☆☆</Radio>
                         <Radio value='2'>★★☆☆☆</Radio>
                         <Radio value='3'>★★★☆☆</Radio>
                         <Radio value='4'>★★★★☆</Radio>
