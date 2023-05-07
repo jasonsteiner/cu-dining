@@ -5,13 +5,11 @@ type Props = {
   readonly review: ReviewWithId
 }
 
-const ReviewItem = ({ review: { id, stars, comment } }: Props) => {
+const ReviewItem = ({ review: { stars, comment } }: Props) => {
   return (
     <HStack w="100%">
       <Text>
-        {id}
-        {stars}
-        {comment}
+        {stars} {comment}
       </Text>
     </HStack>
   )

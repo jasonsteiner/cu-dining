@@ -1,5 +1,5 @@
 export type Review = {
-  stars: number
+  stars: string
   comment: string
 }
   
