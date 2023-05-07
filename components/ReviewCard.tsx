@@ -1,4 +1,3 @@
-// ReviewCard.tsx
 import React from 'react';
 import styles from './ReviewCard.module.css';
 

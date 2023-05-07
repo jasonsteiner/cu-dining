@@ -10,7 +10,6 @@ export default function Navbar() {
             <Link href="/reviews">
                 <a>Add Review</a>
             </Link>
-        </
-        nav>
+        </nav>
     );
 }
