@@ -15,6 +15,8 @@ export default function ReviewsPage() {
             <Navbar />
             <form onSubmit={handleSubmit}>
                 <label>
+                </label>
+                <label>
                     Rating:
                     <input
                         type="number"

@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css';
 const diningHalls = [
     {
         id: 1,
-        name: "Morrison Dining",
+        name: "Morrison Dining Room",
         image: "https://via.placeholder.com/150",
         averageRating: 4.7,
     },

@@ -2,7 +2,12 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import ReviewCard from '../../components/ReviewCard';
 import styles from '../../styles/dining-hall.module.css';
+import { db } from "../../util/firebase"
+import { onSnapshot, collection, query} from "firebase/firestore"
+import { useEffect, useState } from "react"
+import { ReviewWithId, Review } from "../../types"
 
+// static locations (not from database)
 const diningHalls = [
     {
         id: '1',
@@ -42,7 +47,7 @@ const diningHalls = [
     }
 ];
 
-// hardcoded reviews delete later...
+// hardcoded reviews, delete later...
 const diningHallReviews: { [key: string]: { userID: string; rating: number; description: string; }[] } = {
     '1': [
         { userID: 'user1', rating: 5, description: 'Great food!' },
@@ -58,7 +63,32 @@ const diningHallReviews: { [key: string]: { userID: string; rating: number; desc
     ],
 };
 
-// location-specific subpage
+// query based on location (setup conditional later)
+const reviewQuery = query(collection(db, "morrison"));
+
+const FetchReviews = () => {
+    // Subscribes to `reviewQuery` to get realtime updates
+    // We define a function to run whenever the query result changes
+    const [reviews, setReviews] = useState<ReviewWithId[] | null>(null)
+    useEffect(() => {
+        const temp = onSnapshot(reviewQuery, (reviewSnapshot) => {
+            setReviews(reviewSnapshot.docs.map((rev) => {
+                const review: Review = rev.data() as Review
+                return {...review, id: rev.id}
+            }) as ReviewWithId[]);
+        })
+        return temp
+    }, [])
+
+    return (
+        reviews
+    )
+}
+
+export default FetchReviews
+
+// location-specific subpages
+/*
 export default function DiningHall() {
     const router = useRouter();
     const id = String(router.query.id);
@@ -89,3 +119,4 @@ export default function DiningHall() {
         </div>
     );
 }
+*/
