@@ -5,10 +5,7 @@ export default function Navbar() {
     return (
         <nav>
             <Link href="/">
-                <a>Home</a>
-            </Link>
-            <Link href="/reviews">
-                <a>Add Review</a>
+                <h1>Back to Home</h1>
             </Link>
         </nav>
     );

@@ -6,6 +6,7 @@ import { ReviewWithId, Review } from "../../types"
 import { Spinner, VStack } from "@chakra-ui/react"
 import ReviewList from "../../components/ReviewList"
 import AddControl from "../../components/AddControl"
+import Navbar from '../../components/Navbar';
 
 // static locations (not from database)
 const diningHalls = [
@@ -72,6 +73,7 @@ const FetchReviews = () => {
 
     return (
         <VStack spacing={4}> 
+            <Navbar />
             <AddControl />
             {reviews ? <ReviewList reviews={reviews} /> : <Spinner />}
         </VStack>
