@@ -74,7 +74,6 @@ const FetchReviews = () => {
     return (
         <VStack spacing={4}> 
             <Navbar />
-            <AddControl />
             {reviews ? <ReviewList reviews={reviews} /> : <Spinner />}
         </VStack>
     )
