@@ -3,6 +3,7 @@ import { FormEventHandler, useState } from "react"
 import { Review } from "../types"
 import { collection, addDoc } from "firebase/firestore"
 import { db } from "../util/firebase"
+import Navbar from '../components/Navbar';
 
 const AddControl = () => {
     const [stars, setStars] = useState("");
@@ -25,7 +26,8 @@ const AddControl = () => {
 
     return (
         <form onSubmit={addReview}>
-            <HStack>
+            <VStack>
+                <Navbar />
                 <RadioGroup value={stars} onChange={setStars}>
                     <VStack>
                         <Radio value='1'>★☆☆☆☆</Radio>
@@ -45,14 +47,14 @@ const AddControl = () => {
                         <Radio value='trillium'>Trillium Food Court</Radio>
                     </VStack>
                 </RadioGroup>
-                <Input
+                <textarea
                     value={input}
-                    type="text"
                     placeholder="Enter your review..."
                     onChange={(e) => setInput(e.target.value)}
+                    style={{ height: '200px', width:'500px' }}
                 />
                 <Button type="submit">Add Review</Button>
-            </HStack>
+            </VStack>
         </form>
     );
 }

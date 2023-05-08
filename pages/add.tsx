@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
 import AddControl from "../components/AddControl";
 
 export default function ReviewsPage() {
@@ -12,7 +11,6 @@ export default function ReviewsPage() {
 
     return (
         <div>
-            <Navbar />
             <AddControl />
         </div>
     );
