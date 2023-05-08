@@ -6,6 +6,7 @@ import { db } from "../util/firebase"
 
 const AddControl = () => {
     const [stars, setStars] = useState("");
+    const [location, setLocation] = useState("");
     const [input, setInput] = useState("");
 
     const addReview: FormEventHandler<HTMLFormElement> = (e) => {
@@ -15,7 +16,7 @@ const AddControl = () => {
 
         // add the review to firebase
         const review: Review = {stars: stars, comment: input}
-        addDoc(collection(db, "morrison"), review)
+        addDoc(collection(db, location), review)
 
         // clear current input field
         setStars("");
@@ -32,6 +33,16 @@ const AddControl = () => {
                         <Radio value='3'>★★★☆☆</Radio>
                         <Radio value='4'>★★★★☆</Radio>
                         <Radio value='5'>★★★★★</Radio>
+                    </VStack>
+                </RadioGroup>
+                <RadioGroup value={location} onChange={setLocation}>
+                    <VStack>
+                        <Radio value='morrison'>Morrison Dining Room</Radio>
+                        <Radio value='northstar'>North Star Dining Room</Radio>
+                        <Radio value='risley'>Risley Dining Room</Radio>
+                        <Radio value='okenshields'>Okenshields Dining Room</Radio>
+                        <Radio value='terrace'>Terrace Restaurant</Radio>
+                        <Radio value='trillium'>Trillium Food Court</Radio>
                     </VStack>
                 </RadioGroup>
                 <Input
