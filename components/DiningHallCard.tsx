@@ -9,13 +9,13 @@ interface DiningHall {
     averageRating?: number;
 }
 
-const DiningHallCard: React.FC<{ diningHall: DiningHall }> = ({ diningHall }) => {   
+const DiningHallCard: React.FC<{ diningHall: DiningHall }> = ({ diningHall }) => {
     const averageRating = diningHall.averageRating
         ? diningHall.averageRating.toFixed(1)
         : 'N/A';
 
     return (
-        <Link href={`/dining-hall/id=${diningHall.id}`}>
+        <Link href={`/dining-hall/${diningHall.id}`}>
             <div className={`${styles.card} ${styles.link}`}>
                 <h2 className={styles.title}>{diningHall.name}</h2>
                 <img
