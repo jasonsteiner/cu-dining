@@ -13,6 +13,7 @@ import {
 import { db } from '../../util/firebase';
 import { ReviewWithId } from '../../types';
 import { signInWithGoogle, signOut, auth } from '../../util/firebase';
+import styles from '../../components/Layout.module.css';
 
 export default function DiningHallPage() {
     const router = useRouter();
@@ -68,19 +69,32 @@ export default function DiningHallPage() {
         return () => unsubscribe();
     }, []);
 
+    const hallDict: { [key: string]: string } = {
+        '1' : "Morrison Dining Room", 
+        '2' : "North Star Dining Room", 
+        '3' : "Risley Dining Room", 
+        '4' : "Okenshields Dining Room", 
+        '5' : "Terrace Restaurant", 
+        '6' : "Trillium Food Court"
+    };
+
     return (
         <div>
-            <h1>Reviews for Dining Hall {id}</h1>
-            <h2>
-                Average Rating:{' '}
-                {averageRating !== null ? averageRating.toFixed(1) : 'N/A'} / 5.0
-            </h2>
-            {isLoggedIn === false && ("You must login to add a new review!")}
-            {isLoggedIn && (<ReviewForm onSubmit={handleSubmit} />)}
+            <div className={styles.general}>
+                <h1 className={styles.bolder}>Reviews for {typeof id === 'string' ? hallDict[id] : undefined}</h1>
+                <h2>
+                    Average Rating:{' '}
+                    {averageRating !== null ? averageRating.toFixed(1) : 'N/A'} / 5.0
+                </h2>
+            </div>
+            <div className={styles.personal}>
+                {isLoggedIn === false && ("You must login to add a new review!")}
+                {isLoggedIn && (<ReviewForm onSubmit={handleSubmit} />)}
+            </div>
             <div>
                 {reviews.map((review) => (
-                    <div key={review.id}>
-                        <p>Rating: {review.stars} / 5.0</p>
+                    <div key={review.id} className={styles.bubble}>
+                        <p>Rating: {review.stars} / 5</p>
                         <p>Comment: {review.comment}</p>
                     </div>
                 ))}
