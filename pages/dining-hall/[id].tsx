@@ -1,11 +1,10 @@
 import React from 'react';
 import { db } from "../../util/firebase"
-import { onSnapshot, collection, query} from "firebase/firestore"
-import { useEffect, useState } from "react"
+import { collection, query, where, getDocs } from "firebase/firestore"
+import { useRouter } from 'next/router';
 import { ReviewWithId, Review } from "../../types"
-import { Spinner, VStack } from "@chakra-ui/react"
+import { VStack } from "@chakra-ui/react"
 import ReviewList from "../../components/ReviewList"
-import AddControl from "../../components/AddControl"
 import Navbar from '../../components/Navbar';
 
 // static locations (not from database)
@@ -50,33 +49,50 @@ const diningHalls = [
 
 // query based on location (still need to implement)
 let scores = {
-    '1': "morrison", 
-    '2': "northstar", 
-    '3': "risley", 
-    '4': "okenshields", 
-    '5': "terrace", 
+    '1': "morrison",
+    '2': "northstar",
+    '3': "risley",
+    '4': "okenshields",
+    '5': "terrace",
     '6': "trillium"
 };
 const reviewQuery = query(collection(db, "morrison"))
 
-const FetchReviews = () => {
-    const [reviews, setReviews] = useState<ReviewWithId[] | null>(null)
-    useEffect(() => {
-        const snap = onSnapshot(reviewQuery, (reviewSnapshot) => {
-            setReviews(reviewSnapshot.docs.map((doc) => {
-                const review: Review = doc.data() as Review
-                return {...review, id: doc.id}
-            }) as ReviewWithId[]);
-        })
-        return snap
-    }, [])
+const FetchReviews = ({ reviews }: { reviews: ReviewWithId[] }) => {
+    const router = useRouter();
+    const { id } = router.query;
+
+    const diningHall = diningHalls.find((dh) => dh.id === id);
+    const title = diningHall ? diningHall.name : 'Dining Hall';
 
     return (
-        <VStack spacing={4}> 
+        <VStack spacing={4}>
             <Navbar />
-            {reviews ? <ReviewList reviews={reviews} /> : <Spinner />}
+            <h1>{title}</h1>
+            <ReviewList reviews={reviews} />
         </VStack>
-    )
+    );
 }
 
-export default FetchReviews
+export async function getServerSideProps(context: any) {
+    const { id } = context.query;
+
+    const reviewQuery = query(
+        collection(db, "reviews"),
+        where("diningHallId", "==", parseInt(id))
+    );
+
+    const reviewSnapshot = await getDocs(reviewQuery);
+    const reviews = reviewSnapshot.docs.map((doc) => {
+        const review: Review = doc.data() as Review;
+        return { ...review, id: doc.id };
+    }) as ReviewWithId[];
+
+    return {
+        props: {
+            reviews,
+        },
+    };
+}
+
+export default FetchReviews;
