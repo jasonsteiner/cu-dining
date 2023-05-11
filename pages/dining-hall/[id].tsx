@@ -75,6 +75,7 @@ export default function DiningHallPage() {
                 Average Rating:{' '}
                 {averageRating !== null ? averageRating.toFixed(1) : 'N/A'} / 5.0
             </h2>
+            {isLoggedIn === false && ("You must login to add a new review!")}
             {isLoggedIn && (<ReviewForm onSubmit={handleSubmit} />)}
             <div>
                 {reviews.map((review) => (
