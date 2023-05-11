@@ -57,7 +57,6 @@ const AddControl = () => {
                     style={{ height: '200px', width:'500px' }}
                 />
                 <Button type="submit">Add Review</Button>
-                <Button onClick={signInWithGoogle}>Sign In</Button>;
             </VStack>
         </form>
     );
