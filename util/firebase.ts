@@ -1,5 +1,7 @@
 import { initializeApp, getApps, getApp } from "firebase/app"
 import { getFirestore } from "firebase/firestore"
+import withFirebaseAuth from "react-with-firebase-auth"
+import { getAuth, signInWithPopup, signOut, GoogleAuthProvider } from "firebase/auth"
 
 // (X) Replace with your own Firebase config
 const firebaseConfig = {
@@ -16,4 +18,31 @@ const app = getApps().length ? getApp() : initializeApp(firebaseConfig)
 
 const db = getFirestore(app)
 
-export { db }
+// authentication stuff
+const auth = getAuth(app);
+
+const providers = {
+  googleProvider: new GoogleAuthProvider(),
+};
+
+const createComponentWithAuth = withFirebaseAuth({
+  providers,
+  firebaseAppAuth: auth,
+});
+
+const signInWithGoogle = () => {
+  signInWithPopup(auth, providers.googleProvider);
+};
+
+const signOutFirebase = () => {
+  signOut(auth);
+};
+
+// exports
+export {
+  db,
+  auth,
+  createComponentWithAuth,
+  signInWithGoogle,
+  signOutFirebase as signOut,
+};

@@ -4,6 +4,7 @@ import { Review } from "../types"
 import { collection, addDoc } from "firebase/firestore"
 import { db } from "../util/firebase"
 import Navbar from '../components/Navbar';
+import { signInWithGoogle } from '../util/firebase';
 
 const AddControl = () => {
     const [stars, setStars] = useState("");
@@ -54,6 +55,7 @@ const AddControl = () => {
                     style={{ height: '200px', width:'500px' }}
                 />
                 <Button type="submit">Add Review</Button>
+                <Button onClick={signInWithGoogle}>Sign In</Button>;
             </VStack>
         </form>
     );
