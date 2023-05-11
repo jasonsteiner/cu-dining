@@ -1,10 +1,10 @@
-import { Button, HStack, VStack, Input, RadioGroup, Radio } from "@chakra-ui/react"
-import { FormEventHandler, useState } from "react"
-import { Review } from "../../types"
-import { collection, addDoc } from "firebase/firestore"
-import { db } from "../../util/firebase"
+import { Button, VStack, RadioGroup, Radio } from "@chakra-ui/react";
+import { FormEventHandler, useState } from "react";
+import { Review } from "../../types";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../util/firebase";
 import Navbar from '../layout/Navbar';
-import { useAuth } from "../auth/AuthUserProvider"
+import { useAuth } from "../auth/AuthUserProvider";
 
 const AddControl = () => {
     const [stars, setStars] = useState("");

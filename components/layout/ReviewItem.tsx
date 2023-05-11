@@ -1,5 +1,5 @@
-import { HStack, Text } from "@chakra-ui/react"
-import { ReviewWithId } from "../../types"
+import { HStack, Text } from "@chakra-ui/react";
+import { ReviewWithId } from "../../types";
 
 type Props = {
   readonly review: ReviewWithId

@@ -65,6 +65,11 @@
     margin-bottom: 10px;
     border-radius: 10px;
     padding: 10px;
+    transition: 0.125s;
+}
+
+.inside:hover {
+    background-color: rgba(0, 0, 0, 0.626);
 }
 
 .area {
@@ -75,6 +80,11 @@
     margin-bottom: 15px;
     border-radius: 10px;
     width: 560px;
+    transition: 0.125s;
+}
+
+.area:hover {
+    background-color: rgba(0, 0, 0, 0.626);
 }
 
 .bolder {
@@ -103,4 +113,9 @@
     padding: 10px;
     background-color: rgba(0, 0, 0, 0.484);
     color: white;
+    transition: 0.125s;
+}
+
+.publisher:hover {
+    background-color: rgba(0, 0, 0, 0.626);
 }

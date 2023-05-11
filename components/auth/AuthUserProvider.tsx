@@ -1,7 +1,7 @@
-import { User } from "firebase/auth"
-import { createContext, useContext, FC, PropsWithChildren } from "react"
-import { WrappedComponentProps } from "react-with-firebase-auth"
-import { createComponentWithAuth } from "../../util/firebase"
+import { User } from "firebase/auth";
+import { createContext, useContext, FC, PropsWithChildren } from "react";
+import { WrappedComponentProps } from "react-with-firebase-auth";
+import { createComponentWithAuth } from "../../util/firebase";
 
 type AuthData = Omit<WrappedComponentProps, "user"> & {
   user?: User | null
