@@ -12,6 +12,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../../util/firebase';
 import { ReviewWithId } from '../../types';
+import { signInWithGoogle, signOut, auth } from '../../util/firebase';
 
 export default function DiningHallPage() {
     const router = useRouter();
@@ -57,6 +58,16 @@ export default function DiningHallPage() {
         }
     };
 
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
+        setIsLoggedIn(!!user);
+        });
+
+        return () => unsubscribe();
+    }, []);
+
     return (
         <div>
             <h1>Reviews for Dining Hall {id}</h1>
@@ -64,13 +75,11 @@ export default function DiningHallPage() {
                 Average Rating:{' '}
                 {averageRating !== null ? averageRating.toFixed(1) : 'N/A'} / 5.0
             </h2>
-            <ReviewForm onSubmit={handleSubmit} />
+            {isLoggedIn && (<ReviewForm onSubmit={handleSubmit} />)}
             <div>
                 {reviews.map((review) => (
                     <div key={review.id}>
-                        <p>
-                            User: {review.userEmail} Rating: {review.stars} / 5.0
-                        </p>
+                        <p>Rating: {review.stars} / 5.0</p>
                         <p>Comment: {review.comment}</p>
                     </div>
                 ))}
