@@ -1,8 +1,8 @@
 ## CU Dining
 
 By Jason Steiner (jns226) and Nicholas Won (nlw55)
-* GitHub: https://github.com/jasonsteiner/cu-dining
-* Website: [Insert Link to Deployed Site]
+* GitHub Repository: https://github.com/jasonsteiner/cu-dining
+* Deployed Website: https://cu-dining-nlwon.vercel.app/
 * Our web app is a forum for Cornell students to review dining halls on campus. It allows users to leave ratings and reviews for different dining halls, as well as check reviews left by other users. The main page shows a gallery of the various dining halls on campus, with their respective average rating, and users can click on a dining hall to view all the reviews left for it. The entry form page allows users to add a rating and review.
 
 ## Next.js
