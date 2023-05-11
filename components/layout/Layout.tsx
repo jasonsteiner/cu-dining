@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
-import styles from './Layout.module.css';
-import { signInWithGoogle, signOut, auth } from '../util/firebase';
+import styles from '../../styles/Layout.module.css';
+import { signInWithGoogle, signOut, auth } from '../../util/firebase';
 import { Button } from "@chakra-ui/react"
 import { useState, useEffect } from 'react';
 

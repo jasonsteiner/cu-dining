@@ -1,19 +1,18 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import ReviewForm from '../../components/ReviewForm';
-import ReviewCard from '../../components/ReviewCard';
+import ReviewForm from '../components/control/ReviewForm';
 import {
     collection,
     addDoc,
     query,
     where,
-    getDocs,
     onSnapshot,
 } from 'firebase/firestore';
-import { db } from '../../util/firebase';
-import { ReviewWithId } from '../../types';
-import { signInWithGoogle, signOut, auth } from '../../util/firebase';
-import styles from '../../components/Layout.module.css';
+import { db } from '../util/firebase';
+import { ReviewWithId } from '../types';
+import { auth } from '../util/firebase';
+import styles from '../styles/Layout.module.css';
+import Head from 'next/head';
 
 export default function DiningHallPage() {
     const router = useRouter();
@@ -80,6 +79,11 @@ export default function DiningHallPage() {
 
     return (
         <div>
+            <Head>
+                <title>{typeof id === 'string' ? hallDict[id] : undefined} | CU Dining</title>
+                <meta name="description" content="CU Dining Locations Review App" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <div className={styles.general}>
                 <h1 className={styles.bolder}>Reviews for {typeof id === 'string' ? hallDict[id] : undefined}</h1>
                 <h2>

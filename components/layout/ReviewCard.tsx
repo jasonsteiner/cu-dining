@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ReviewCard.module.css';
+import styles from '../../styles/ReviewCard.module.css';
 
 interface Review {
     userID: string;

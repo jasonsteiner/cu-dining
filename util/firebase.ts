@@ -3,7 +3,6 @@ import { getFirestore } from "firebase/firestore"
 import withFirebaseAuth from "react-with-firebase-auth"
 import { getAuth, signInWithPopup, signOut, GoogleAuthProvider } from "firebase/auth"
 
-// (X) Replace with your own Firebase config
 const firebaseConfig = {
     apiKey: "AIzaSyBUMo-p7oLloJz6CoqKzX27c6zYEocJdPA",
     authDomain: "cu-dining-753c3.firebaseapp.com",

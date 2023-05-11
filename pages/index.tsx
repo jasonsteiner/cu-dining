@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import DiningHallCard from '../components/DiningHallCard';
+import DiningHallCard from '../components/layout/DiningHallCard';
 import styles from '../styles/Home.module.css';
 
 const diningHalls = [
@@ -46,7 +46,7 @@ export default function Home() {
         <div className={styles.container}>
             <Head>
                 <title>Home | CU Dining</title>
-                <meta name="description" content="CU Dining Locations Review App" />
+                <meta name="description" content="CU Dining - Cornel Eatery Reviews" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 

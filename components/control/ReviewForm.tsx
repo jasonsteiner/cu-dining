@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../components/Layout.module.css';
+import styles from '../../styles/Layout.module.css';
 
 interface ReviewFormProps {
     onSubmit: (stars: string, comment: string) => void;

@@ -3,7 +3,6 @@ export type Review = {
   comment: string
 }
   
-
 export type ReviewWithId = Review & {
   id: string
 }

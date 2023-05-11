@@ -1,5 +1,5 @@
 import { Text, VStack } from "@chakra-ui/react"
-import { ReviewWithId } from "../types"
+import { ReviewWithId } from "../../types"
 import ReviewItem from "./ReviewItem"
 
 type Props = {

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import styles from '../styles/dining-hall-card.module.css';
+import styles from '../../styles/dining-hall-card.module.css';
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from "../util/firebase";
+import { db } from "../../util/firebase";
 
 interface DiningHall {
     id: number;
@@ -41,7 +41,7 @@ const DiningHallCard: React.FC<{ diningHall: DiningHall, diningHallId: number }>
         : 'N/A';
 
     return (
-        <Link href={`/dining-hall/${diningHall.id}`}>
+        <Link href={`/${diningHall.id}`}>
             <div className={`${styles.card} ${styles.link}`}>
                 <h2 className={styles.title}>{diningHall.name}</h2>
                 <img
