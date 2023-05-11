@@ -11,7 +11,7 @@ interface DiningHall {
     averageRating?: number;
 }
 
-const DiningHallCard: React.FC<{ diningHall: DiningHall }> = ({ diningHall }) => {
+const DiningHallCard: React.FC<{ diningHall: DiningHall, diningHallId: number }> = ({ diningHall }) => {
     const [averageRating, setAverageRating] = useState<number | null>(null);
 
     useEffect(() => {
