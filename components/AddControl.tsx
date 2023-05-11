@@ -5,11 +5,13 @@ import { collection, addDoc } from "firebase/firestore"
 import { db } from "../util/firebase"
 import Navbar from '../components/Navbar';
 import { signInWithGoogle } from '../util/firebase';
+import { useAuth } from "../components/auth/AuthUserProvider"
 
 const AddControl = () => {
     const [stars, setStars] = useState("");
     const [location, setLocation] = useState("");
     const [input, setInput] = useState("");
+    const { user } = useAuth()
 
     const addReview: FormEventHandler<HTMLFormElement> = (e) => {
         // form feedback
@@ -17,7 +19,7 @@ const AddControl = () => {
         if (input === "") return
 
         // add the review to firebase
-        const review: Review = {stars: stars, comment: input}
+        const review: Review = {stars: stars, comment: input, reviewer: user!.uid}
         addDoc(collection(db, location), review)
 
         // clear current input field
