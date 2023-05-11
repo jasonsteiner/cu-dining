@@ -19,7 +19,7 @@ const AddControl = () => {
         if (input === "") return
 
         // add the review to firebase
-        const review: Review = {stars: stars, comment: input, reviewer: user!.uid}
+        const review: Review = {stars: stars, comment: input}
         addDoc(collection(db, location), review)
 
         // clear current input field
